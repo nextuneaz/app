@@ -1,135 +1,87 @@
-<div align="center">
+# 🚀 Nextune.az - Professional Windows Optimization Suite
 
-<img src="logo.png" alt="NexTune Logo" width="150" height="150" />
+**Nextune.az** (Paradox Performance), Windows əməliyyat sistemlərini (10/11) optimallaşdırmaq, oyun performansını artırmaq, gizliliyi təmin etmək və sistem xətalarını aradan qaldırmaq üçün hazırlanmış peşəkar bir masaüstü alətdir. 
 
-⚡ NexTune | System Intelligence
+![Platform](https://img.shields.io/badge/Platform-Windows-blue)
+![Python](https://img.shields.io/badge/Python-3.9+-yellow)
+![UI](https://img.shields.io/badge/UI-CustomTkinter-blueviolet)
+![Version](https://img.shields.io/badge/Version-1.0.0-green)
 
-AI Dəstəkli PC Sürətləndirmə və Optimizasiya Aləti AI-Powered PC Optimizer & System Suite
+---
 
-🇦🇿 Azərbaycan Dilində • 🇬🇧 English Version
+## ✨ Əsas Xüsusiyyətlər
 
-</div>
+* **🛡️ Lisenziya Sistemi:** Təhlükəsiz giriş və lisenziya doğrulama qapısı.
+* **📊 Sistem Analizi:** CPU, GPU, RAM, Disk (SSD/HDD) və Windows versiyasının dərin analizi.
+* **🤖 AI Advisor:** İstifadəçi profilinə (Gamer, Office, Student, Old PC) uyğun ağıllı optimallaşdırma tövsiyələri.
+* **⚡ Optimizasiya Hub-ı:** * Gecikmələrin (Latency) azaldılması.
+    * Telemetriya və lazımsız xidmətlərin söndürülməsi.
+    * Ultimate Performance gücləndirici planlar.
+* **📦 App Bundles:** Windows Store, Xbox xidmətləri və digər sistem proqramlarının asan bərpası və ya silinməsi.
+* **🛠️ Fixer Hub:** Windows Update, Audio, Şəbəkə və Store xətalarının tək kliklə təmiri.
+* **📸 Snapshot & Recovery:** Hər hansı bir dəyişiklikdən əvvəl sistemin ehtiyat nüsxəsini (backup) yaratma imkanı.
+* **🔧 External Tools:** Office Installer, MAS və digər kənar alətlərin inteqrasiyası.
 
-🇦🇿 Nex Tune - Haqqında
+---
 
-NexTune, kompüterinizin performansını maksimuma çatdırmaq üçün hazırlanmış, tamamilə yerli və təhlükəsiz bir proqram təminatıdır. Arxasındakı Süni Zəka (AI) Analiz Sistemi sayəsində sisteminizin gücünü (RAM, CPU, Disk növü) avtomatik ölçür və sizə ən uyğun rejimi ("Gamer", "Student" və ya "Office") təklif edir.
+## 📸 Ekran Görüntüləri
 
-Köhnə və donan kompüterlərə yeni nəfəs verin, oyunlarda FPS-i artırın və sistem xətalarını tək kliklə həll edin.
+> [Burada proqramın ekran görüntülərini yerləşdirə bilərsiniz]
+> > 
+---
 
-🔥 Əsas Özəlliklər
+## 🛠️ Texnologiyalar
 
-Özəllik
+Bu layihə aşağıdakı kitabxanalar və texnologiyalar istifadə edilərək hazırlanmışdır:
 
-Təsvir
+* **Python 3.x** - Əsas proqramlaşdırma dili.
+* **CustomTkinter** - Müasir "Dark Mode" interfeysi üçün.
+* **SQLite3** - Müştəri tarixçəsi və sistem datalarının saxlanılması üçün.
+* **PowerShell Integration** - Sistem səviyyəli əmrlərin icrası üçün.
+* **Pillow (PIL)** - Qrafik və divar kağızlarının emalı üçün.
 
-🧠 AI Analiz
+---
 
-Sistem parametrlərini (CPU, RAM, SSD/HDD) oxuyur və avtomatik qərar verir.
+## 🚀 Quraşdırma (Installation)
 
-🚀 FPS Boost
+1.  **Reponu klonlayın:**
+    ```bash
+    git clone [https://github.com/istifadeci_adiniz/nextune-az.git](https://github.com/istifadeci_adiniz/nextune-az.git)
+    cd nextune-az
+    ```
 
-Arxa fondakı lazımsız xidmətləri dayandıraraq oyun performansını artırır.
+2.  **Lazımi kitabxanaları quraşdırın:**
+    ```bash
+    pip install customtkinter pillow
+    ```
 
-🛠️ Smart Fixer
+3.  **Proqramı başladın:**
+    ```bash
+    python tst.py
+    ```
 
-Windows Update, İnternet və Store problemlərini 1 kliklə təmir edir.
+> **Qeyd:** Proqramın tam funksional işləməsi üçün Administrator səlahiyyətləri ilə başladılması tövsiyə olunur.
 
-📦 App Manager
+---
 
-Lazımsız "Bloatware" tətbiqlərini (Xbox, Bing, Maps) təhlükəsiz silir.
+## 📁 Qovluq Strukturu
 
-🌐 Ping Optimizer
+* `/assets`: Loqolar və şəkillər.
+* `/bin`: Xarici `.exe` və `.ps1` alətləri.
+* `/data`: Verilənlər bazası və lisenziya sessiyaları (avtomatik yaranır).
+* `/backups`: Yaradılan sistem snapshot-ları.
 
-Onlayn oyunlar üçün şəbəkə parametrlərini (TCP/DNS) tənzimləyir.
+---
 
-🛡️ Təhlükəsizlik
+## 🤝 Əlaqə & Dəstək
 
-Hər əməliyyatdan əvvəl "Restore Point" (Geri Dönüş Nöqtəsi) yaradır.
+Hər hansı bir sualınız və ya təklifiniz varsa, bizimlə əlaqə saxlaya bilərsiniz:
 
-📥 Yükləmə və Quraşdırma
+* **Telegram:** [@nextune_az](https://t.me/nextune_az)
+* **WhatsApp:** +994 77 307 99 02
 
-Yuxarıdakı Releases bölməsindən son versiyanı (NexTune.zip) yükləyin.
+---
 
-ZIP faylını açın.
+## 📝 Lisenziya
 
-NexTune.exe faylını Administrator olaraq işə salın.
-
-Scan edin və nəticənin keyfini çıxarın!
-
-⚠️ Xəbərdarlıq
-
-NexTune sistem faylları ilə işlədiyi üçün bəzi antiviruslar "False Positive" (Yalançı xəbərdarlıq) verə bilər. Proqram tamamilə açıq mənbəlidir (Open Source) və təhlükəsizdir.
-
-<div align="center">
-
-
-
-
-
-<img src="screenshot.png" alt="App Screenshot" width="800" style="border-radius: 10px; box-shadow: 0px 0px 20px rgba(99, 102, 241, 0.5);" />
-
-
-
-
-
-
-
-</div>
-
-🇬🇧 About Nex Tune
-
-NexTune is a powerful, locally developed system optimization suite designed to push your PC's performance to the limit. Powered by an AI Analysis Engine, it automatically detects your hardware specs (RAM, CPU, Disk type) and recommends the best optimization profile ("Gamer", "Student", or "Office").
-
-Revive old PCs, boost FPS in games, and fix common Windows errors with a single click.
-
-🔥 Key Features
-
-Feature
-
-Description
-
-🧠 AI Analysis
-
-Scans hardware (CPU, RAM, SSD/HDD) and suggests the perfect plan.
-
-🚀 FPS Boost
-
-Terminates unnecessary background services to maximize gaming performance.
-
-🛠️ Smart Fixer
-
-Repairs Windows Update, Network, and Microsoft Store issues instantly.
-
-📦 App Manager
-
-Safely removes pre-installed bloatware (Xbox, Bing, Maps, etc.).
-
-🌐 Ping Optimizer
-
-Tweaks TCP/IP and DNS settings for lower latency in online games.
-
-🛡️ Safety First
-
-Automatically creates a System Restore Point before any changes.
-
-📥 Download & Installation
-
-Download the latest release (NexTune.zip) from the Releases section.
-
-Extract the ZIP file.
-
-Run NexTune.exe as Administrator.
-
-Scan your system and enjoy the speed!
-
-⚠️ Disclaimer
-
-Since NexTune interacts with system files and registry keys, some antivirus software might flag it as a "False Positive". The software is safe and built with transparency in mind.
-
-<div align="center">
-
-Connect With Us / Bizimlə Əlaqə
-
-Developed with ❤️ by Sanan
-
-</div>
+Bu proqram **Paradox Performance** tərəfindən hazırlanmışdır. Müəllif hüquqları qorunur. Proqramın icazəsiz kopyalanması və ya satılması qadağandır.
