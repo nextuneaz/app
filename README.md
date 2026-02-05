@@ -1,87 +1,127 @@
-# 🚀 Nextune.az - Professional Windows Optimization Suite
+<div align="center">
 
-**Nextune.az** (Paradox Performance), Windows əməliyyat sistemlərini (10/11) optimallaşdırmaq, oyun performansını artırmaq, gizliliyi təmin etmək və sistem xətalarını aradan qaldırmaq üçün hazırlanmış peşəkar bir masaüstü alətdir. 
+<!-- Optional: replace with your logo -->
+<!-- <img src="assets/logo.png" width="110" alt="Nextune.az logo" /> -->
 
-![Platform](https://img.shields.io/badge/Platform-Windows-blue)
-![Python](https://img.shields.io/badge/Python-3.9+-yellow)
-![UI](https://img.shields.io/badge/UI-CustomTkinter-blueviolet)
-![Version](https://img.shields.io/badge/Version-1.0.0-green)
+# Nextune.az — Windows Optimizer (Single-EXE, License Required)
 
----
+A premium Windows 10/11 optimization & maintenance tool delivered as a **single executable**.  
+**Closed-source distribution**: this repository is for landing/issue tracking/docs only.
 
-## ✨ Əsas Xüsusiyyətlər
+<br/>
 
-* **🛡️ Lisenziya Sistemi:** Təhlükəsiz giriş və lisenziya doğrulama qapısı.
-* **📊 Sistem Analizi:** CPU, GPU, RAM, Disk (SSD/HDD) və Windows versiyasının dərin analizi.
-* **🤖 AI Advisor:** İstifadəçi profilinə (Gamer, Office, Student, Old PC) uyğun ağıllı optimallaşdırma tövsiyələri.
-* **⚡ Optimizasiya Hub-ı:** * Gecikmələrin (Latency) azaldılması.
-    * Telemetriya və lazımsız xidmətlərin söndürülməsi.
-    * Ultimate Performance gücləndirici planlar.
-* **📦 App Bundles:** Windows Store, Xbox xidmətləri və digər sistem proqramlarının asan bərpası və ya silinməsi.
-* **🛠️ Fixer Hub:** Windows Update, Audio, Şəbəkə və Store xətalarının tək kliklə təmiri.
-* **📸 Snapshot & Recovery:** Hər hansı bir dəyişiklikdən əvvəl sistemin ehtiyat nüsxəsini (backup) yaratma imkanı.
-* **🔧 External Tools:** Office Installer, MAS və digər kənar alətlərin inteqrasiyası.
+<!-- Badges (optional) -->
+![Windows](https://img.shields.io/badge/Windows-10%20%7C%2011-0078D6?logo=windows&logoColor=white)
+![Build](https://img.shields.io/badge/Build-Single%20EXE-3DDC84)
+![License Gate](https://img.shields.io/badge/Access-License%20Required-FF5A5F)
 
----
+<br/>
 
-## 📸 Ekran Görüntüləri
+<!-- ===== DOWNLOAD BUTTON ===== -->
+<a href="https://YOUR-DOMAIN.TLD/download">
+  <img alt="Download" src="https://img.shields.io/badge/Download-Windows%20EXE-7fb4ff?style=for-the-badge" />
+</a>
 
-> [Burada proqramın ekran görüntülərini yerləşdirə bilərsiniz]
-> > 
----
+<p><sub>Replace <code>https://YOUR-DOMAIN.TLD/download</code> with your real website URL.</sub></p>
 
-## 🛠️ Texnologiyalar
-
-Bu layihə aşağıdakı kitabxanalar və texnologiyalar istifadə edilərək hazırlanmışdır:
-
-* **Python 3.x** - Əsas proqramlaşdırma dili.
-* **CustomTkinter** - Müasir "Dark Mode" interfeysi üçün.
-* **SQLite3** - Müştəri tarixçəsi və sistem datalarının saxlanılması üçün.
-* **PowerShell Integration** - Sistem səviyyəli əmrlərin icrası üçün.
-* **Pillow (PIL)** - Qrafik və divar kağızlarının emalı üçün.
+</div>
 
 ---
 
-## 🚀 Quraşdırma (Installation)
+## 🔒 Closed Source (Important)
+This project is **not open-source**. The distributed app is a **single `.exe`** and **requires a valid license key** to unlock features.
 
-1.  **Reponu klonlayın:**
-    ```bash
-    git clone [https://github.com/istifadeci_adiniz/nextune-az.git](https://github.com/istifadeci_adiniz/nextune-az.git)
-    cd nextune-az
-    ```
-
-2.  **Lazımi kitabxanaları quraşdırın:**
-    ```bash
-    pip install customtkinter pillow
-    ```
-
-3.  **Proqramı başladın:**
-    ```bash
-    python tst.py
-    ```
-
-> **Qeyd:** Proqramın tam funksional işləməsi üçün Administrator səlahiyyətləri ilə başladılması tövsiyə olunur.
+- ✅ End-users download from a website
+- ✅ App runs as one executable
+- ✅ License gate blocks the main UI until validated
+- ✅ Per-PC state/history persists between runs
 
 ---
 
-## 📁 Qovluq Strukturu
-
-* `/assets`: Loqolar və şəkillər.
-* `/bin`: Xarici `.exe` və `.ps1` alətləri.
-* `/data`: Verilənlər bazası və lisenziya sessiyaları (avtomatik yaranır).
-* `/backups`: Yaradılan sistem snapshot-ları.
-
----
-
-## 🤝 Əlaqə & Dəstək
-
-Hər hansı bir sualınız və ya təklifiniz varsa, bizimlə əlaqə saxlaya bilərsiniz:
-
-* **Telegram:** [@nextune_az](https://t.me/nextune_az)
-* **WhatsApp:** +994 77 307 99 02
+## ✨ Highlights
+- **Premium dark UI** (desktop app)
+- **License-based access** (authentication required)
+- **Windows 10 & Windows 11** support
+- **Safe / Medium / Ultra** optimization modes
+- **Backups & reports** generated in app data
+- **Per-machine history** (local database)
 
 ---
 
-## 📝 Lisenziya
+## 🖥️ What It Does
+Typical actions include (depends on mode/profile):
+- Performance tuning (power plan, core parking tweaks where applicable)
+- Privacy & telemetry reductions (policy/registry-level changes)
+- Background apps & bloat reduction (safe limits)
+- Cleanup routines (temp/shader cache cleanup)
+- Tools hub (PowerShell helpers, WinUtil integration when configured)
 
-Bu proqram **Paradox Performance** tərəfindən hazırlanmışdır. Müəllif hüquqları qorunur. Proqramın icazəsiz kopyalanması və ya satılması qadağandır.
+> ⚠️ Some actions can affect system behavior. Use responsibly and always keep a backup.
+
+---
+
+## 📦 Download & Install
+**No installer.** Download and run the EXE:
+
+1. Go to the official website: `https://YOUR-DOMAIN.TLD`
+2. Click **Download**
+3. Run `Nextune.exe`
+4. Enter your **License Key** to unlock the app
+
+---
+
+## 🔑 License (How it works)
+- On launch, the app shows a **license login screen**
+- Without a valid license key, **the main UI is not accessible**
+- After successful login, the session is stored locally and can revalidate as needed
+
+---
+
+## 🗂️ Data & Storage
+The app stores operational data (logs/reports/backups/database) under a local AppData folder (or portable mode if enabled).
+
+- Logs: app runtime logs
+- Reports: generated optimization reports
+- Backups: snapshots for undo/restore flows
+- DB: per-PC history (machines, scans, runs)
+
+---
+
+## 🧰 Portable Mode (Optional)
+You can enable portable behavior (data stays next to the EXE) by:
+- launching with `--portable`, **or**
+- placing a `portable.flag` file next to the EXE
+
+---
+
+## 🆘 Support / Contact
+If you need a license or support:
+
+- WhatsApp: `+994773079902`
+- Telegram: `@nextune_az`
+
+---
+
+## 🧾 FAQ
+**Is this open-source?**  
+No. The distributed application is closed-source.
+
+**Do you provide a setup/installer?**  
+No. It is delivered as a single `.exe`.
+
+**Will it work on Windows 10?**  
+Yes, Windows 10 & 11 are supported.
+
+---
+
+## 📌 Roadmap (Example)
+- UI polish & more animations
+- More safety checks & compatibility guards
+- Enhanced reporting dashboard
+- One-click restore improvements
+
+---
+
+## ⚖️ Disclaimer
+This tool performs system-level changes. Use at your own risk.  
+Always create a backup before applying aggressive optimization modes.
