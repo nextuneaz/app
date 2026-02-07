@@ -2,10 +2,10 @@
 <html lang="az" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NexTune | Professional PC Optimization & Support</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>NexTune | Professional PC Optimization</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         body {
@@ -17,63 +17,168 @@
         .font-tech {
             font-family: 'Orbitron', sans-serif;
         }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4f46e5;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4338ca;
+        }
+        
         .glow-spot {
             position: absolute;
             border-radius: 50%;
-            filter: blur(120px);
+            filter: blur(100px);
             z-index: -1;
-            opacity: 0.25;
+            opacity: 0.2;
         }
+        
+        /* Glassmorphism */
         .glass-nav {
-            background: rgba(5, 5, 5, 0.9);
-            backdrop-filter: blur(20px);
+            background: rgba(5, 5, 5, 0.85);
+            backdrop-filter: blur(16px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
         .glass-card {
             background: rgba(20, 20, 25, 0.4);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         .glass-card:hover {
             background: rgba(30, 30, 40, 0.6);
             border-color: rgba(99, 102, 241, 0.3);
             transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(79, 70, 229, 0.2);
         }
+
+        /* Slide Overlay */
         .slide-overlay {
-            background: linear-gradient(to top, #050505 10%, transparent 90%);
+            background: linear-gradient(to top, rgba(5,5,5,0.95) 10%, rgba(5,5,5,0.7) 50%, rgba(5,5,5,0.2) 100%);
+        }
+        @media (min-width: 768px) {
+            .slide-overlay {
+                background: linear-gradient(to top, #050505 10%, rgba(5,5,5,0.6) 90%);
+            }
+        }
+
+        /* Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Mobile Menu */
+        #mobile-menu {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Floating WA Button Pulse */
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        .wa-float {
+            animation: pulse-green 2s infinite;
+        }
+
+        /* FAQ Accordion Details */
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+        details[open] summary ~ * {
+            animation: sweep .5s ease-in-out;
+        }
+        @keyframes sweep {
+            0%    {opacity: 0; transform: translateY(-10px)}
+            100%  {opacity: 1; transform: translateY(0)}
         }
     </style>
 </head>
 <body class="relative min-h-screen flex flex-col">
 
-    <!-- Background Ambience -->
-    <div class="glow-spot bg-indigo-600 w-[600px] h-[600px] top-[-200px] left-[-100px]"></div>
-    <div class="glow-spot bg-cyan-600 w-[500px] h-[500px] bottom-0 right-0"></div>
-    <div class="glow-spot bg-violet-600 w-[300px] h-[300px] top-[40%] left-[30%] opacity-10"></div>
+    <!-- Sticky WhatsApp Button (Mobile Only) -->
+    <a href="https://wa.me/994772229381" target="_blank" class="md:hidden fixed bottom-6 right-6 z-[100] bg-[#25D366] p-4 rounded-full text-white shadow-lg wa-float flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"/><path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1"/></svg>
+    </a>
 
-    <!-- Navbar -->
-    <nav class="w-full h-20 px-6 fixed top-0 z-50 glass-nav flex justify-between items-center">
-        <!-- Logo Container -->
-        <div class="h-full py-1 flex items-center">
-            <img src="logo.png" onerror="this.src='https://placehold.co/200x80?text=NexTune'" alt="NexTune" class="h-full w-auto object-contain max-h-16">
-        </div>
-
-        <div class="hidden md:flex gap-8 text-xs font-bold tracking-widest text-gray-400">
-            <a href="#features" class="hover:text-white transition">NƏTİCƏLƏR</a>
-            <a href="#services" class="hover:text-cyan-400 transition text-cyan-200">XİDMƏTLƏR</a>
-            <a href="#remote" class="hover:text-white transition">UZAQDAN DƏSTƏK</a>
-            <a href="#contact" class="hover:text-white transition">ƏLAQƏ</a>
-        </div>
-
-        <a href="https://github.com/nextuneaz/app/releases/download/Nextune/NextuneAZ.exe" target="_blank" class="hidden md:flex bg-white text-black px-6 py-2 rounded-lg font-bold hover:bg-cyan-400 hover:scale-105 transition transform text-xs tracking-wide shadow-[0_0_20px_rgba(255,255,255,0.3)]">
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-black/95 z-[60] transform translate-x-full flex flex-col items-center justify-center gap-8 md:hidden backdrop-blur-xl">
+        <button onclick="toggleMenu()" class="absolute top-6 right-6 text-gray-400 hover:text-white p-2">
+            <i data-lucide="x" size="32"></i>
+        </button>
+        <a href="#features" onclick="toggleMenu()" class="text-2xl font-bold hover:text-indigo-400 font-tech tracking-wider">NƏTİCƏLƏR</a>
+        <a href="#details" onclick="toggleMenu()" class="text-2xl font-bold hover:text-indigo-400 font-tech tracking-wider">ÜSTÜNLÜKLƏR</a>
+        <a href="#services" onclick="toggleMenu()" class="text-2xl font-bold hover:text-indigo-400 font-tech tracking-wider">XİDMƏTLƏR</a>
+        <a href="#contact" onclick="toggleMenu()" class="text-2xl font-bold hover:text-indigo-400 font-tech tracking-wider">ƏLAQƏ</a>
+        <a href="https://github.com/nextuneaz/app/releases/download/Nextune/NextuneAZ.exe" target="_blank" class="px-10 py-4 bg-indigo-600 rounded-full font-bold text-lg mt-4 shadow-[0_0_20px_rgba(79,70,229,0.5)]">
             PROQRAMI YÜKLƏ
         </a>
+    </div>
+
+    <!-- Background Ambience -->
+    <div class="glow-spot bg-indigo-600 w-[300px] h-[300px] md:w-[800px] md:h-[800px] top-[-200px] left-[-100px] animate-pulse"></div>
+    <div class="glow-spot bg-cyan-600 w-[200px] h-[200px] md:w-[600px] md:h-[600px] bottom-0 right-0"></div>
+
+    <!-- Navbar -->
+    <nav class="w-full h-16 md:h-20 px-4 md:px-6 fixed top-0 z-50 glass-nav flex justify-between items-center transition-all duration-300">
+        <!-- Logo -->
+        <div class="h-full py-3 flex items-center">
+            <img src="logo.png" onerror="this.src='https://placehold.co/200x80?text=NexTune'" alt="NexTune" class="h-full w-auto object-contain hover:brightness-125 transition">
+        </div>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex gap-8 text-xs font-bold tracking-[0.2em] text-gray-400">
+            <a href="#features" class="hover:text-white transition relative group">
+                NƏTİCƏLƏR
+                <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-500 transition-all group-hover:w-full"></span>
+            </a>
+            <a href="#details" class="hover:text-white transition relative group">
+                ÜSTÜNLÜKLƏR
+                <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-500 transition-all group-hover:w-full"></span>
+            </a>
+            <a href="#services" class="hover:text-cyan-400 transition text-cyan-200 relative group">
+                XİDMƏTLƏR
+                <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 transition-all group-hover:w-full"></span>
+            </a>
+            <a href="#contact" class="hover:text-white transition relative group">
+                ƏLAQƏ
+                <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-500 transition-all group-hover:w-full"></span>
+            </a>
+        </div>
+
+        <!-- Desktop CTA -->
+        <a href="https://github.com/nextuneaz/app/releases/download/Nextune/NextuneAZ.exe" target="_blank" class="hidden md:flex bg-white text-black px-6 py-2 rounded-lg font-bold hover:bg-cyan-400 hover:scale-105 transition transform text-xs tracking-wide shadow-[0_0_15px_rgba(255,255,255,0.2)]">
+            <i data-lucide="download" class="w-4 h-4 mr-2"></i> PROQRAMI YÜKLƏ
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <button onclick="toggleMenu()" class="md:hidden text-white p-2 hover:bg-white/10 rounded-lg transition">
+            <i data-lucide="menu" size="28"></i>
+        </button>
     </nav>
 
     <!-- Hero Section -->
-    <header class="pt-40 pb-20 px-4 text-center flex flex-col items-center justify-center min-h-[85vh]">
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-[10px] font-bold tracking-widest uppercase mb-8 animate-fade-in-up">
+    <header class="pt-32 pb-12 md:pt-40 md:pb-24 px-4 text-center flex flex-col items-center justify-center min-h-[90vh] relative overflow-hidden">
+        
+        <!-- Animated Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase mb-8 reveal active">
             <span class="relative flex h-2 w-2">
               <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
               <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
@@ -81,205 +186,335 @@
             Professional Sistem Mühəndisliyi
         </div>
         
-        <h1 class="font-tech text-5xl md:text-8xl font-black mb-6 leading-none tracking-tight">
-            PC-NİZİN GİZLİ <br>
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-cyan-400 to-white">GÜCÜNÜ OYADIN</span>
+        <h1 class="font-tech text-4xl sm:text-6xl md:text-8xl font-black mb-6 leading-[1.1] tracking-tight reveal active" style="transition-delay: 100ms;">
+            PC-NİN GİZLİ <br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400 animate-gradient">GÜCÜNÜ OYADIN</span>
         </h1>
         
-        <p class="text-gray-400 text-lg md:text-xl max-w-2xl mb-10 leading-relaxed font-medium">
-            Kompüteriniz donur, oyunlarda FPS düşür? <br>
-            Biz sadəcə proqram təklif etmirik, biz sisteminizi <span class="text-white border-b border-indigo-500">peşəkar mühəndis səviyyəsində</span> optimallaşdırırıq.
+        <p class="text-gray-400 text-sm md:text-xl max-w-2xl mb-10 leading-relaxed font-medium px-4 reveal active" style="transition-delay: 200ms;">
+            Kompüteriniz donur, oyunlarda FPS düşür? <br class="hidden md:block">
+            Biz sadəcə proqram təklif etmirik, biz sisteminizi <span class="text-white border-b border-indigo-500 font-bold">peşəkar mühəndis</span> səviyyəsində optimallaşdırırıq.
         </p>
         
-        <div class="flex flex-col sm:flex-row gap-5 w-full sm:w-auto">
-            <a href="https://github.com/nextuneaz/app/releases/download/Nextune/NextuneAZ.exe" target="_blank" class="px-8 py-4 bg-indigo-600 rounded-xl font-bold text-lg shadow-lg hover:bg-indigo-500 transition flex items-center justify-center gap-2">
-                <i data-lucide="download"></i> NexTune Yüklə
+        <div class="flex flex-col w-full sm:w-auto sm:flex-row gap-4 px-4 sm:px-0 reveal active" style="transition-delay: 300ms;">
+            <a href="https://github.com/nextuneaz/app/releases/download/Nextune/NextuneAZ.exe" target="_blank" class="w-full sm:w-auto px-8 py-4 bg-indigo-600 rounded-xl font-bold text-lg shadow-[0_10px_40px_-10px_rgba(79,70,229,0.5)] hover:bg-indigo-500 hover:scale-105 transition flex items-center justify-center gap-2">
+                <i data-lucide="download" size="20"></i> NexTune Yüklə
             </a>
-            <a href="#services" class="px-8 py-4 bg-white/5 border border-white/10 rounded-xl font-bold text-lg hover:bg-white/10 transition flex items-center justify-center gap-2 backdrop-blur-md">
-                <i data-lucide="monitor-smartphone"></i> Canlı Xidmət Al
+            <a href="#services" class="w-full sm:w-auto px-8 py-4 bg-white/5 border border-white/10 rounded-xl font-bold text-lg hover:bg-white/10 hover:border-white/30 transition flex items-center justify-center gap-2 backdrop-blur-md">
+                <i data-lucide="zap" size="20" class="text-yellow-400"></i> Xidmətlər
             </a>
         </div>
 
         <!-- Trust Badges -->
-        <div class="mt-16 flex flex-wrap justify-center gap-8 opacity-60 grayscale hover:grayscale-0 transition duration-500">
-            <div class="flex items-center gap-2"><i data-lucide="shield-check" class="text-green-500 w-5 h-5"></i> <span class="text-sm font-bold">100% Təhlükəsiz</span></div>
-            <div class="flex items-center gap-2"><i data-lucide="zap" class="text-yellow-500 w-5 h-5"></i> <span class="text-sm font-bold">Anında Effekt</span></div>
-            <div class="flex items-center gap-2"><i data-lucide="users" class="text-blue-500 w-5 h-5"></i> <span class="text-sm font-bold">500+ Məmnun Müştəri</span></div>
+        <div class="mt-16 flex flex-wrap justify-center gap-6 md:gap-12 opacity-60 hover:opacity-100 transition duration-500 grayscale hover:grayscale-0 reveal active" style="transition-delay: 400ms;">
+            <div class="flex flex-col items-center gap-2">
+                <i data-lucide="shield-check" class="text-green-500 w-6 h-6"></i> 
+                <span class="text-xs font-bold tracking-widest">100% TƏHLÜKƏSİZ</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+                <i data-lucide="cpu" class="text-cyan-500 w-6 h-6"></i> 
+                <span class="text-xs font-bold tracking-widest">CPU/GPU BOOST</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+                <i data-lucide="users" class="text-indigo-500 w-6 h-6"></i> 
+                <span class="text-xs font-bold tracking-widest">500+ MÜŞTƏRİ</span>
+            </div>
         </div>
     </header>
 
-    <!-- Comparison Slider (Real Results) -->
+    <!-- Detailed Features Grid (NEW SECTION) -->
+    <section id="details" class="py-20 px-4 bg-black/50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-tech text-2xl md:text-4xl font-bold mb-4">NƏLƏRİ OPTİMİZASİYA EDİRİK?</h2>
+                <p class="text-gray-400">FPS artımından daha artığı. Tam sistemin yenidən qurulması.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div class="glass-card p-6 rounded-2xl reveal" style="transition-delay: 100ms;">
+                    <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mb-4 text-blue-400">
+                        <i data-lucide="monitor-stop" size="28"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Windows Debloat</h3>
+                    <p class="text-gray-400 text-sm">Windows-un arxa fonunda işləyən gərəksiz 100+ xidmətin (telemetriya, bloatware) dayandırılması.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="glass-card p-6 rounded-2xl reveal" style="transition-delay: 200ms;">
+                    <div class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center mb-4 text-purple-400">
+                        <i data-lucide="mouse-pointer-2" size="28"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Input Lag Fix</h3>
+                    <p class="text-gray-400 text-sm">Siçan və klaviatura gecikməsinin minimuma endirilməsi. Rekabətçi oyunlarda (CS2, Valo) üstünlük.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="glass-card p-6 rounded-2xl reveal" style="transition-delay: 300ms;">
+                    <div class="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mb-4 text-green-400">
+                        <i data-lucide="activity" size="28"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">BIOS Tuning</h3>
+                    <p class="text-gray-400 text-sm">Anaplata (Motherboard) səviyyəsində gizli parametrlərin açılması və RAM sürətinin artırılması.</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="glass-card p-6 rounded-2xl reveal" style="transition-delay: 400ms;">
+                    <div class="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center mb-4 text-red-400">
+                        <i data-lucide="wifi" size="28"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Ping & Network</h3>
+                    <p class="text-gray-400 text-sm">İnternet paketlərinin itkisinin (packet loss) qarşısının alınması və ping stabilizasiyası.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Slider -->
     <section id="features" class="py-20 px-4">
         <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-10 px-2">
-                <div>
-                    <h2 class="text-3xl md:text-5xl font-bold mb-2">REAL NƏTİCƏLƏR</h2>
-                    <p class="text-gray-400">Biz söz vermirik, rəqəmlərlə sübut edirik.</p>
-                </div>
-                <div class="text-right hidden md:block">
-                    <p class="text-xs text-gray-500 font-mono">TEST DEVICE: LEGION 5 / RTX 3050 Ti</p>
+            <div class="flex flex-col md:flex-row justify-between items-end mb-8 px-2 reveal">
+                <div class="text-center md:text-left w-full">
+                    <h2 class="font-tech text-3xl md:text-5xl font-bold mb-2">REAL NƏTİCƏLƏR</h2>
+                    <p class="text-gray-400 text-sm md:text-base">Müştəri PC-sindən götürülmüş real görüntülər.</p>
                 </div>
             </div>
 
-            <div class="relative w-full aspect-video md:aspect-[21/9] bg-gray-900 rounded-3xl overflow-hidden border border-gray-800 shadow-2xl group">
+            <!-- Slider Container -->
+            <div class="relative w-full h-[500px] md:h-auto md:aspect-[21/9] bg-black rounded-3xl overflow-hidden border border-gray-800 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.8)] reveal">
+                
+                <!-- CS2 Background Image -->
+                <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/730/header.jpg" class="absolute inset-0 w-full h-full object-cover opacity-30 z-0" alt="CS2 Background">
+
                 <!-- Slide 1 -->
-                <div class="slide absolute inset-0 transition-opacity duration-700 opacity-100" id="slide-1">
-                    <img src="task1.png" onerror="this.src='https://placehold.co/1200x600/1a1a1a/ffffff?text=Task+Manager+Before'" alt="Before" class="w-full h-full object-cover opacity-50">
-                    <div class="absolute inset-0 slide-overlay flex flex-col justify-end p-8 md:p-16">
-                        <span class="bg-red-500/20 text-red-400 border border-red-500/50 px-4 py-1 rounded-full text-xs font-bold w-max mb-4">STANDART WINDOWS</span>
-                        <h3 class="text-3xl md:text-5xl font-bold text-white mb-4">Sistem Boğulur ⚠️</h3>
-                        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl">
-                            <div>
-                                <p class="text-gray-400 text-xs uppercase">RAM İstifadəsı (Boş)</p>
-                                <p class="text-2xl font-mono text-red-400">4.6 GB</p>
+                <div class="slide absolute inset-0 transition-opacity duration-700 opacity-100 z-10" id="slide-1">
+                    <img src="task1.png" onerror="this.src='https://placehold.co/1200x600/1a1a1a/ffffff?text=Low+FPS'" alt="Before" class="w-full h-full object-contain object-top md:object-cover opacity-100 md:opacity-60">
+                    
+                    <div class="absolute inset-0 slide-overlay flex flex-col justify-end p-6 md:p-12 lg:p-16">
+                        <span class="bg-red-500/20 text-red-400 border border-red-500/50 px-4 py-1.5 rounded-full text-xs font-bold w-max mb-4 backdrop-blur-md">STANDART WINDOWS</span>
+                        <h3 class="text-3xl md:text-5xl font-bold text-white mb-6 drop-shadow-lg">Sistem Boğulur ⚠️</h3>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl">
+                            <div class="bg-black/60 p-4 rounded-xl border border-white/10 backdrop-blur-md">
+                                <p class="text-gray-400 text-xs font-bold uppercase mb-1">RAM (Boş)</p>
+                                <p class="text-2xl font-mono text-red-500 font-bold">4.6 GB</p>
                             </div>
-                            <div>
-                                <p class="text-gray-400 text-xs uppercase">Arxa Fon Prosesləri</p>
-                                <p class="text-2xl font-mono text-red-400">150+</p>
+                            <div class="bg-black/60 p-4 rounded-xl border border-white/10 backdrop-blur-md">
+                                <p class="text-gray-400 text-xs font-bold uppercase mb-1">Proseslər</p>
+                                <p class="text-2xl font-mono text-red-500 font-bold">150+</p>
                             </div>
-                            <div>
-                                <p class="text-gray-400 text-xs uppercase">FPS (CS2)</p>
-                                <p class="text-2xl font-mono text-gray-300">120-140</p>
+                            <div class="bg-black/60 p-4 rounded-xl border border-white/10 backdrop-blur-md">
+                                <p class="text-gray-400 text-xs font-bold uppercase mb-1">FPS (CS2)</p>
+                                <p class="text-2xl font-mono text-gray-300 font-bold">120-140</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Slide 2 -->
-                <div class="slide absolute inset-0 transition-opacity duration-700 opacity-0" id="slide-2">
-                    <img src="task2.png" onerror="this.src='https://placehold.co/1200x600/1a1a1a/ffffff?text=Task+Manager+After'" alt="After" class="w-full h-full object-cover opacity-50">
-                    <div class="absolute inset-0 slide-overlay flex flex-col justify-end p-8 md:p-16">
-                        <span class="bg-green-500/20 text-green-400 border border-green-500/50 px-4 py-1 rounded-full text-xs font-bold w-max mb-4">NEXTUNE OPTIMIZED</span>
-                        <h3 class="text-3xl md:text-5xl font-bold text-white mb-4">Maksimum Performans 🚀</h3>
-                        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl">
-                            <div>
-                                <p class="text-gray-400 text-xs uppercase">RAM İstifadəsı (Boş)</p>
-                                <p class="text-2xl font-mono text-green-400">2.2 GB</p>
+                <div class="slide absolute inset-0 transition-opacity duration-700 opacity-0 z-10" id="slide-2">
+                    <img src="task2.png" onerror="this.src='https://placehold.co/1200x600/1a1a1a/ffffff?text=High+FPS'" alt="After" class="w-full h-full object-contain object-top md:object-cover opacity-100 md:opacity-60">
+                    
+                    <div class="absolute inset-0 slide-overlay flex flex-col justify-end p-6 md:p-12 lg:p-16">
+                        <span class="bg-green-500/20 text-green-400 border border-green-500/50 px-4 py-1.5 rounded-full text-xs font-bold w-max mb-4 backdrop-blur-md shadow-[0_0_15px_rgba(34,197,94,0.3)]">NEXTUNE OPTIMIZED</span>
+                        <h3 class="text-3xl md:text-5xl font-bold text-white mb-6 drop-shadow-lg">Maksimum Güc 🚀</h3>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl">
+                            <div class="bg-black/60 p-4 rounded-xl border border-green-500/30 backdrop-blur-md">
+                                <p class="text-gray-400 text-xs font-bold uppercase mb-1">RAM (Boş)</p>
+                                <p class="text-2xl font-mono text-green-400 font-bold">2.2 GB</p>
                             </div>
-                            <div>
-                                <p class="text-gray-400 text-xs uppercase">Arxa Fon Prosesləri</p>
-                                <p class="text-2xl font-mono text-green-400">70-90</p>
+                            <div class="bg-black/60 p-4 rounded-xl border border-green-500/30 backdrop-blur-md">
+                                <p class="text-gray-400 text-xs font-bold uppercase mb-1">Proseslər</p>
+                                <p class="text-2xl font-mono text-green-400 font-bold">70-90</p>
                             </div>
-                            <div>
-                                <p class="text-gray-400 text-xs uppercase">FPS (CS2)</p>
-                                <p class="text-2xl font-mono text-white">200+</p>
+                            <div class="bg-black/60 p-4 rounded-xl border border-green-500/30 backdrop-blur-md shadow-[0_0_20px_rgba(34,197,94,0.1)]">
+                                <p class="text-gray-400 text-xs font-bold uppercase mb-1">FPS (CS2)</p>
+                                <p class="text-2xl font-mono text-white font-bold">200+</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="absolute bottom-8 right-8 flex gap-4">
-                    <button onclick="prevSlide()" class="p-4 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/10 transition"><i data-lucide="arrow-left"></i></button>
-                    <button onclick="nextSlide()" class="p-4 rounded-full bg-indigo-600 hover:bg-indigo-500 shadow-lg shadow-indigo-500/30 transition"><i data-lucide="arrow-right"></i></button>
+                <div class="absolute bottom-6 right-6 flex gap-3 z-30">
+                    <button onclick="prevSlide()" class="p-4 rounded-full bg-white/5 hover:bg-white/20 backdrop-blur-md border border-white/10 transition group">
+                        <i data-lucide="arrow-left" class="w-6 h-6 group-hover:-translate-x-1 transition"></i>
+                    </button>
+                    <button onclick="nextSlide()" class="p-4 rounded-full bg-indigo-600 hover:bg-indigo-500 shadow-lg shadow-indigo-500/30 transition group">
+                        <i data-lucide="arrow-right" class="w-6 h-6 group-hover:translate-x-1 transition"></i>
+                    </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services / Business Model -->
-    <section id="services" class="py-24 bg-zinc-900/30 border-y border-white/5">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold mb-4">XİDMƏT PAKETLƏRİ</h2>
-                <p class="text-gray-400">İstər proqramı özünüz işlədin, istərsə də işi peşəkarlara buraxın.</p>
+    <!-- Services -->
+    <section id="services" class="py-24 bg-zinc-900/20 border-y border-white/5 relative">
+        <!-- Background Glow -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-indigo-900/10 blur-[120px] rounded-full pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <h2 class="font-tech text-3xl md:text-5xl font-bold mb-4">XİDMƏT PAKETLƏRİ</h2>
+                <p class="text-gray-400">Ehtiyacınıza uyğun paketi seçin, performansın dadını çıxarın.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Basic -->
-                <div class="glass-card p-8 rounded-3xl relative">
-                    <h3 class="text-2xl font-bold mb-2">Lisenziya (Özün Et)</h3>
-                    <p class="text-4xl font-black mb-6">5 AZN</p>
-                    <ul class="space-y-4 text-gray-400 text-sm mb-8">
-                        <li class="flex gap-3"><i data-lucide="check" class="text-green-500 w-5"></i> Tam Proqram Girişi</li>
-                        <li class="flex gap-3"><i data-lucide="check" class="text-green-500 w-5"></i> Özünüz Optimizasiya Edin</li>
-                        <li class="flex gap-3"><i data-lucide="check" class="text-green-500 w-5"></i> Aylıq Lisenziya</li>
-                        <li class="flex gap-3"><i data-lucide="x" class="text-gray-600 w-5"></i> Xidmət/Usta Daxil Deyil</li>
+                <div class="glass-card p-8 rounded-3xl relative flex flex-col reveal" style="transition-delay: 100ms;">
+                    <div class="mb-6">
+                        <h3 class="text-2xl font-bold mb-2">Lisenziya (Özün Et)</h3>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-4xl font-black">5</span>
+                            <span class="text-xl font-bold text-gray-400">AZN</span>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-2">Aylıq abunəlik</p>
+                    </div>
+                    <ul class="space-y-4 text-gray-400 text-sm mb-8 flex-1">
+                        <li class="flex gap-3 items-center"><i data-lucide="check" class="text-white bg-green-500/20 p-1 rounded-full w-6 h-6"></i> Tam Proqram Girişi</li>
+                        <li class="flex gap-3 items-center"><i data-lucide="check" class="text-white bg-green-500/20 p-1 rounded-full w-6 h-6"></i> Özünüz Optimizasiya Edin</li>
+                        <li class="flex gap-3 items-center opacity-50"><i data-lucide="x" class="w-6 h-6 p-1"></i> Texniki Dəstək Yoxdur</li>
                     </ul>
-                    <a href="https://github.com/nextuneaz/app/releases/download/Nextune/NextuneAZ.exe" target="_blank" class="block w-full py-4 text-center rounded-xl bg-gray-800 hover:bg-gray-700 font-bold transition">YÜKLƏ</a>
+                    <a href="https://github.com/nextuneaz/app/releases/download/Nextune/NextuneAZ.exe" target="_blank" class="block w-full py-4 text-center rounded-xl bg-gray-800 hover:bg-gray-700 font-bold transition border border-gray-700 hover:border-gray-500">
+                        İNDİ YÜKLƏ
+                    </a>
                 </div>
 
-                <!-- PRO Service (The Real Business) -->
-                <div class="glass-card p-1 rounded-3xl relative transform md:-translate-y-4 shadow-2xl shadow-indigo-500/20 bg-gradient-to-b from-indigo-500 to-cyan-500">
-                    <div class="bg-[#0a0a0c] p-8 rounded-[22px] h-full flex flex-col">
-                        <div class="absolute top-0 right-0 bg-white text-black text-xs font-bold px-3 py-1 rounded-bl-xl rounded-tr-lg">ƏN ÇOX SEÇİLƏN</div>
-                        <h3 class="text-2xl font-bold mb-2 text-white">Full Optimizasiya</h3>
-                        <p class="text-4xl font-black mb-1 text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">15 AZN</p>
-                        <p class="text-xs text-gray-500 mb-6">Birdəfəlik ödəniş • Uzaqdan Xidmət</p>
+                <!-- PRO Service -->
+                <div class="glass-card p-1 rounded-3xl relative transform md:-translate-y-6 shadow-[0_0_50px_rgba(79,70,229,0.15)] bg-gradient-to-b from-indigo-500 via-purple-500 to-cyan-500 order-first md:order-none reveal" style="transition-delay: 200ms;">
+                    <div class="bg-[#0a0a0c] p-8 rounded-[22px] h-full flex flex-col relative overflow-hidden">
+                        <!-- Shine effect -->
+                        <div class="absolute top-0 right-0 -mr-10 -mt-10 w-40 h-40 bg-white/5 blur-3xl rounded-full pointer-events-none"></div>
+                        
+                        <div class="absolute top-0 right-0 bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-[10px] font-bold px-4 py-1.5 rounded-bl-xl rounded-tr-[20px] tracking-wider">ƏN ÇOX SATILAN</div>
+                        
+                        <div class="mb-6">
+                            <h3 class="text-2xl font-bold mb-2 text-white">Full Optimizasiya</h3>
+                            <div class="flex items-baseline gap-1">
+                                <span class="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">15</span>
+                                <span class="text-2xl font-bold text-gray-400">AZN</span>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-2">Birdəfəlik ödəniş • Ömürlük Effekt</p>
+                        </div>
                         
                         <ul class="space-y-4 text-gray-300 text-sm mb-8 flex-1">
-                            <li class="flex gap-3"><i data-lucide="check-circle" class="text-indigo-400 w-5"></i> <strong>AnyDesk</strong> ilə mütəxəssis dəstəyi</li>
-                            <li class="flex gap-3"><i data-lucide="check-circle" class="text-indigo-400 w-5"></i> BIOS & Windows dərindən analiz</li>
-                            <li class="flex gap-3"><i data-lucide="check-circle" class="text-indigo-400 w-5"></i> Input Lag (Gecikmə) ləğvi</li>
-                            <li class="flex gap-3"><i data-lucide="check-circle" class="text-indigo-400 w-5"></i> Xüsusi "Overclock" məsləhəti</li>
-                            <li class="flex gap-3"><i data-lucide="check-circle" class="text-indigo-400 w-5"></i> 1 Həftəlik Zəmanət</li>
+                            <li class="flex gap-3 items-start"><i data-lucide="check-circle" class="text-indigo-400 shrink-0 mt-0.5"></i> <span><strong>AnyDesk</strong> ilə mütəxəssis xidməti</span></li>
+                            <li class="flex gap-3 items-start"><i data-lucide="check-circle" class="text-indigo-400 shrink-0 mt-0.5"></i> <span>BIOS & Windows dərindən analiz</span></li>
+                            <li class="flex gap-3 items-start"><i data-lucide="check-circle" class="text-indigo-400 shrink-0 mt-0.5"></i> <span>Input Lag (Gecikmə) ləğvi</span></li>
+                            <li class="flex gap-3 items-start"><i data-lucide="check-circle" class="text-indigo-400 shrink-0 mt-0.5"></i> <span>Təhlükəsiz "Overclock"</span></li>
+                            <li class="flex gap-3 items-start"><i data-lucide="shield-check" class="text-green-400 shrink-0 mt-0.5"></i> <span class="text-white font-bold">1 Həftəlik Zəmanət</span></li>
                         </ul>
-                        <a href="https://wa.me/994772229381" target="_blank" class="block w-full py-4 text-center rounded-xl bg-indigo-600 hover:bg-indigo-500 font-bold transition">SİFARİŞ ET</a>
+                        <a href="https://wa.me/994772229381" target="_blank" class="block w-full py-4 text-center rounded-xl bg-indigo-600 hover:bg-indigo-500 font-bold transition shadow-lg shadow-indigo-500/25">
+                            SİFARİŞ ET (WhatsApp)
+                        </a>
                     </div>
                 </div>
 
                 <!-- Enterprise -->
-                <div class="glass-card p-8 rounded-3xl relative">
-                    <h3 class="text-2xl font-bold mb-2">PC Club / Ofis</h3>
-                    <p class="text-4xl font-black mb-6">Razılaşma</p>
-                    <ul class="space-y-4 text-gray-400 text-sm mb-8">
-                        <li class="flex gap-3"><i data-lucide="check" class="text-green-500 w-5"></i> 10+ Kompüter</li>
-                        <li class="flex gap-3"><i data-lucide="check" class="text-green-500 w-5"></i> Yerində xidmət</li>
-                        <li class="flex gap-3"><i data-lucide="check" class="text-green-500 w-5"></i> Şəbəkə qurulması</li>
+                <div class="glass-card p-8 rounded-3xl relative flex flex-col reveal" style="transition-delay: 300ms;">
+                    <div class="mb-6">
+                        <h3 class="text-2xl font-bold mb-2">PC Club / Ofis</h3>
+                        <p class="text-3xl font-black text-gray-200">Razılaşma</p>
+                        <p class="text-xs text-gray-500 mt-2">Korporativ həllər</p>
+                    </div>
+                    <ul class="space-y-4 text-gray-400 text-sm mb-8 flex-1">
+                        <li class="flex gap-3 items-center"><i data-lucide="briefcase" class="text-gray-500 w-5"></i> 10+ Kompüter üçün endirim</li>
+                        <li class="flex gap-3 items-center"><i data-lucide="map-pin" class="text-gray-500 w-5"></i> Yerində xidmət imkanı</li>
+                        <li class="flex gap-3 items-center"><i data-lucide="server" class="text-gray-500 w-5"></i> Şəbəkə qurulması</li>
                     </ul>
-                    <a href="https://wa.me/994772229381" target="_blank" class="block w-full py-4 text-center rounded-xl border border-gray-700 hover:bg-gray-800 font-bold transition">ƏLAQƏ SAXLA</a>
+                    <a href="https://wa.me/994772229381" target="_blank" class="block w-full py-4 text-center rounded-xl border border-gray-700 hover:bg-gray-800 font-bold transition text-gray-300">
+                        ƏLAQƏ SAXLA
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Remote Support (AnyDesk) -->
+    <!-- FAQ Section (NEW) -->
+    <section class="py-20 px-4">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="font-tech text-3xl font-bold text-center mb-10 reveal">TEZ-TEZ VERİLƏN SUALLAR</h2>
+            
+            <div class="space-y-4">
+                <details class="glass-card rounded-xl group reveal" style="transition-delay: 100ms;">
+                    <summary class="flex justify-between items-center p-6 cursor-pointer font-bold text-lg select-none">
+                        Bu proqram təhlükəsizdirmi?
+                        <span class="transition-transform group-open:rotate-180"><i data-lucide="chevron-down"></i></span>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-400 text-sm leading-relaxed">
+                        Bəli, tamamilə təhlükəsizdir. NexTune yalnız Windows-un rəsmi parametrlərini optimallaşdırır. Heç bir zərərli fayl və ya virus yoxdur. VirusTotal nəticələrimiz təmizdir.
+                    </div>
+                </details>
+
+                <details class="glass-card rounded-xl group reveal" style="transition-delay: 200ms;">
+                    <summary class="flex justify-between items-center p-6 cursor-pointer font-bold text-lg select-none">
+                        Oyunlarda ban riski varmı?
+                        <span class="transition-transform group-open:rotate-180"><i data-lucide="chevron-down"></i></span>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-400 text-sm leading-relaxed">
+                        Xeyr. Biz oyun fayllarına (exe, dll) müdaxilə etmirik. Yalnız əməliyyat sistemi (Windows), şəbəkə və driver parametrlərini düzəldirik. Bu, Anti-Cheat sistemləri (VAC, Vanguard) tərəfindən qadağan deyil.
+                    </div>
+                </details>
+
+                <details class="glass-card rounded-xl group reveal" style="transition-delay: 300ms;">
+                    <summary class="flex justify-between items-center p-6 cursor-pointer font-bold text-lg select-none">
+                        Full Optimizasiya nə qədər vaxt aparır?
+                        <span class="transition-transform group-open:rotate-180"><i data-lucide="chevron-down"></i></span>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-400 text-sm leading-relaxed">
+                        Orta hesabla 30-45 dəqiqə. Biz AnyDesk ilə qoşuluruq, siz ekran qarşısında oturub prosesi izləyə bilirsiniz. İş bitdikdən sonra dərhal fərqi hiss edəcəksiniz.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Remote Support -->
     <section id="remote" class="py-20 px-4">
-        <div class="max-w-6xl mx-auto glass-card rounded-3xl p-10 md:p-16 border border-indigo-500/20 bg-gradient-to-br from-gray-900 to-black relative overflow-hidden">
-            <!-- Decorative Icon -->
-            <div class="absolute -right-10 -bottom-10 opacity-10">
+        <div class="max-w-6xl mx-auto glass-card rounded-3xl p-6 md:p-16 border border-indigo-500/20 bg-gradient-to-br from-[#0f0f15] to-black relative overflow-hidden reveal">
+            <div class="absolute -right-20 -bottom-20 opacity-5 rotate-12">
                 <i data-lucide="monitor" size="300"></i>
             </div>
 
             <div class="relative z-10 flex flex-col md:flex-row items-center gap-12">
-                <div class="md:w-1/2">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="p-3 bg-red-600 rounded-lg text-white"><i data-lucide="life-buoy"></i></div>
+                <div class="w-full md:w-1/2">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 bg-red-600/20 rounded-xl flex items-center justify-center text-red-500 shadow-[0_0_20px_rgba(220,38,38,0.3)]">
+                            <i data-lucide="life-buoy" size="24"></i>
+                        </div>
                         <h2 class="text-3xl font-bold">Bacarmadınız? <br>Bizə Buraxın.</h2>
                     </div>
                     <p class="text-gray-400 text-lg mb-8 leading-relaxed">
                         Kompüter texnikasından başınız çıxmırsa, risk etməyin. 
-                        Peşəkar komandamız <strong>AnyDesk</strong> və ya <strong>TeamViewer</strong> vasitəsilə 
-                        sizin kompüterə bağlanır və bütün optimizasiya işlərini gözünüzün önündə həll edir.
+                        Peşəkar komandamız sizin kompüterə uzaqdan bağlanıb hər şeyi həll edir.
                     </p>
                     <div class="flex flex-wrap gap-4">
-                        <!-- AnyDesk Button: Logo Only (Full Brand) -->
-                        <a href="https://anydesk.com/en/downloads/thank-you?dv=win_exe" target="_blank" class="bg-white px-6 py-3 rounded-lg flex items-center justify-center shadow-lg transform hover:scale-105 transition h-14 w-40">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/AnyDesk-logo.svg/960px-AnyDesk-logo.svg.png" class="h-full w-full object-contain" alt="AnyDesk">
+                        <a href="https://anydesk.com/en/downloads/thank-you?dv=win_exe" target="_blank" class="bg-white px-6 py-3 rounded-xl flex items-center justify-center shadow-lg hover:scale-105 transition h-14 w-40">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/AnyDesk-logo.svg/960px-AnyDesk-logo.svg.png" class="h-8 object-contain" alt="AnyDesk">
                         </a>
-                        <!-- TeamViewer Button: Logo Only (Full Brand) -->
-                        <a href="https://download.teamviewer.com/download/TeamViewer_Setup_x64.exe?_gl=1*oq8ina*_gcl_au*ODk1NzM4NTEwLjE3NzAzMjU2NTQ." target="_blank" class="bg-white px-6 py-3 rounded-lg flex items-center justify-center shadow-lg transform hover:scale-105 transition h-14 w-44">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/TeamViewer_logo_new.svg/2560px-TeamViewer_logo_new.svg.png " class="h-full w-full object-contain" alt="TeamViewer">
+                        <a href="https://download.teamviewer.com/download/TeamViewer_Setup_x64.exe?_gl=1*oq8ina*_gcl_au*ODk1NzM4NTEwLjE3NzAzMjU2NTQ." target="_blank" class="bg-white px-6 py-3 rounded-xl flex items-center justify-center shadow-lg hover:scale-105 transition h-14 w-44">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/TeamViewer_logo_new.svg/2560px-TeamViewer_logo_new.svg.png " class="h-8 object-contain" alt="TeamViewer">
                         </a>
                     </div>
                 </div>
-                <div class="md:w-1/2 bg-black/50 p-8 rounded-2xl border border-gray-700">
-                    <h4 class="font-bold text-white mb-4">Necə İşləyir?</h4>
-                    <ol class="space-y-4">
-                        <li class="flex gap-4">
-                            <span class="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center font-bold text-sm">1</span>
-                            <p class="text-gray-400 text-sm">WhatsApp-dan bizə yazın və problemi deyin.</p>
+                <div class="w-full md:w-1/2 bg-white/5 p-8 rounded-2xl border border-white/10 backdrop-blur-sm">
+                    <h4 class="font-bold text-white mb-6 border-b border-white/10 pb-4">Necə İşləyir?</h4>
+                    <ol class="space-y-6 relative">
+                        <!-- Line -->
+                        <div class="absolute left-[15px] top-2 bottom-2 w-0.5 bg-gray-700 -z-10"></div>
+                        
+                        <li class="flex gap-4 items-center">
+                            <span class="w-8 h-8 rounded-full bg-indigo-600 border-4 border-[#0f0f15] flex items-center justify-center font-bold text-xs shadow-lg">1</span>
+                            <p class="text-gray-300 text-sm">WhatsApp-dan bizə yazın.</p>
                         </li>
-                        <li class="flex gap-4">
-                            <span class="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center font-bold text-sm">2</span>
-                            <p class="text-gray-400 text-sm">AnyDesk ID-nizi göndərin.</p>
+                        <li class="flex gap-4 items-center">
+                            <span class="w-8 h-8 rounded-full bg-indigo-600 border-4 border-[#0f0f15] flex items-center justify-center font-bold text-xs shadow-lg">2</span>
+                            <p class="text-gray-300 text-sm">AnyDesk ID-nizi göndərin.</p>
                         </li>
-                        <li class="flex gap-4">
-                            <span class="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center font-bold text-sm">3</span>
-                            <p class="text-gray-400 text-sm">Biz bağlanırıq, sistemi düzəldirik, siz nəticəni görürsünüz.</p>
+                        <li class="flex gap-4 items-center">
+                            <span class="w-8 h-8 rounded-full bg-indigo-600 border-4 border-[#0f0f15] flex items-center justify-center font-bold text-xs shadow-lg">3</span>
+                            <p class="text-gray-300 text-sm">Ödəniş edin və nəticəni izləyin.</p>
                         </li>
                     </ol>
-                    <a href="https://wa.me/994772229381" target="_blank" class="mt-8 w-full py-3 bg-green-600 hover:bg-green-500 rounded-lg flex items-center justify-center gap-2 font-bold transition">
-                        <i data-lucide="message-circle"></i> WHATSAPP İLƏ YAZ
+                    <a href="https://wa.me/994772229381" target="_blank" class="mt-8 w-full py-4 bg-green-600 hover:bg-green-500 rounded-xl flex items-center justify-center gap-2 font-bold transition shadow-lg shadow-green-900/20">
+                        <i data-lucide="message-circle" size="20"></i> WHATSAPP İLƏ YAZ
                     </a>
                 </div>
             </div>
@@ -287,33 +522,51 @@
     </section>
 
     <!-- Footer -->
-    <footer id="contact" class="bg-black py-12 border-t border-gray-900 text-center">
-        <div class="max-w-4xl mx-auto px-4">
+    <footer id="contact" class="bg-black py-12 border-t border-gray-900 text-center px-4 relative">
+        <div class="max-w-4xl mx-auto">
             <div class="mb-8">
-                <!-- Footer Logo Increased Size -->
-                <img src="logo.png" onerror="this.src='https://placehold.co/200x80?text=NexTune'" alt="NexTune" class="h-24 md:h-32 w-auto mx-auto mb-4 opacity-90 hover:opacity-100 transition">
-                <p class="text-gray-500 text-sm">Bakı, Azərbaycan • Peşəkar IT Xidmətləri</p>
+                <img src="logo.png" onerror="this.src='https://placehold.co/200x80?text=NexTune'" alt="NexTune" class="h-24 w-auto mx-auto mb-4 opacity-80 hover:opacity-100 transition duration-500">
+                <p class="text-gray-500 text-sm tracking-wide">Bakı, Azərbaycan • Premium PC Optimization</p>
             </div>
             
-            <div class="flex justify-center gap-8 mb-8">
-                <a href="https://instagram.com/nextune.az" target="_blank" class="text-gray-400 hover:text-indigo-400 transition transform hover:scale-110"><i data-lucide="instagram" size="24"></i></a>
-                <!-- TikTok Icon using SVG directly as Lucide might not show brand icon -->
-                <a href="https://tiktok.com/@nextune.az" target="_blank" class="text-gray-400 hover:text-indigo-400 transition transform hover:scale-110">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-music-2"><circle cx="8" cy="18" r="4"/><path d="M12 18V2l7 4"/></svg>
+            <div class="flex justify-center gap-8 mb-10">
+                <a href="https://instagram.com/nextune.az" target="_blank" class="bg-gray-900 p-3 rounded-full text-gray-400 hover:text-white hover:bg-gradient-to-tr hover:from-yellow-500 hover:via-red-500 hover:to-purple-500 transition duration-300 group">
+                    <i data-lucide="instagram" size="24" class="group-hover:scale-110 transition"></i>
                 </a>
-                <a href="mailto:nextune.az@gmail.com" class="text-gray-400 hover:text-indigo-400 transition transform hover:scale-110"><i data-lucide="mail" size="24"></i></a>
+                <a href="https://tiktok.com/@nextune.az" target="_blank" class="bg-gray-900 p-3 rounded-full text-gray-400 hover:text-white hover:bg-black hover:shadow-[0_0_15px_rgba(0,255,255,0.5)] transition duration-300 group border border-transparent hover:border-gray-800">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:scale-110 transition"><circle cx="8" cy="18" r="4"/><path d="M12 18V2l7 4"/></svg>
+                </a>
+                <a href="mailto:nextune.az@gmail.com" class="bg-gray-900 p-3 rounded-full text-gray-400 hover:text-white hover:bg-blue-600 transition duration-300 group">
+                    <i data-lucide="mail" size="24" class="group-hover:scale-110 transition"></i>
+                </a>
             </div>
 
-            <p class="text-gray-700 text-xs">
-                &copy; 2026 NEXTUNE SYSTEMS. BÜTÜN HÜQUQLAR QORUNUR. <br>
-                Designed for Performance.
-            </p>
+            <div class="border-t border-gray-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-600">
+                <p>&copy; 2026 NEXTUNE SYSTEMS. BÜTÜN HÜQUQLAR QORUNUR.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-gray-400">Məxfilik</a>
+                    <a href="#" class="hover:text-gray-400">Şərtlər</a>
+                </div>
+            </div>
         </div>
     </footer>
 
     <script>
         lucide.createIcons();
 
+        // Mobile Menu Logic
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const isOpen = !menu.classList.contains('translate-x-full');
+            
+            if (isOpen) {
+                menu.classList.add('translate-x-full');
+            } else {
+                menu.classList.remove('translate-x-full');
+            }
+        }
+
+        // Slider Logic
         let currentSlide = 1;
         const totalSlides = 2;
 
@@ -333,9 +586,101 @@
         }
 
         function prevSlide() {
-            nextSlide(); // Since there are only 2 slides, prev is same as next
+            nextSlide();
         }
+
+        // Scroll Animation Logic (Intersection Observer)
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // Only animate once
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+        // --- AYARLAR ---
+    const TELEGRAM_BOT_TOKEN = '8573272602:AAEXQhepLIOfZYP6tYRHzvVmollaiLLOjYY'; // Örnek: 123456789:ABCdefGHIjklMNO...
+    const TELEGRAM_CHAT_ID = '8280105709';     // Örnek: 987654321
+
+    // Mesaj gönderme fonksiyonu
+    async function sendTelegramNotification(message) {
+        const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+        const params = {
+            chat_id: TELEGRAM_CHAT_ID,
+            text: message,
+            parse_mode: 'HTML' // Kalın/italik yazı desteği için
+        };
+
+        try {
+            await fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(params)
+            });
+        } catch (error) {
+            console.error('Telegram bildirimi gönderilemedi:', error);
+        }
+    }
+
+    // 1. Sayfa Yüklendiğinde Bildirim Gönder (Yeni Ziyaretçi)
+    document.addEventListener('DOMContentLoaded', () => {
+        const userAgent = navigator.userAgent;
+        const platform = navigator.platform;
+        
+        // Cihaz türünü basitçe tahmin etme
+        let deviceType = "Bilgisayar";
+        if (/Mobi|Android/i.test(userAgent)) deviceType = "Mobil";
+
+        const msg = `🚀 <b>YENİ ZİYARETÇİ!</b>\n\n` +
+                    `🖥️ <b>Cihaz:</b> ${deviceType}\n` +
+                    `⚙️ <b>Sistem:</b> ${platform}\n` +
+                    `⏰ <b>Zaman:</b> ${new Date().toLocaleTimeString('az-AZ')}`;
+        
+        sendTelegramNotification(msg);
+    });
+
+    // 2. Tıklamaları Takip Et (İndirme, WhatsApp, vb.)
+    document.addEventListener('click', (e) => {
+        // Tıklanan element bir link (a) veya buton (button) mu?
+        const target = e.target.closest('a, button');
+
+        if (target) {
+            let actionName = target.innerText.trim().replace(/\n/g, ' ') || "İsimsiz Buton";
+            let link = target.href || "";
+            let icon = "point_up"; // Varsayılan ikon
+
+            // Özel aksiyonları belirle ve isimlendir
+            if (link.includes('mediafire')) {
+                actionName = "📥 PROQRAMI YÜKLƏ (Mediafire)";
+                icon = "floppy_disk";
+            } else if (link.includes('wa.me')) {
+                actionName = "💬 WhatsApp Əlaqə";
+                icon = "speech_balloon";
+            } else if (link.includes('instagram')) {
+                actionName = "📸 Instagram";
+            } else if (link.includes('anydesk') || link.includes('teamviewer')) {
+                actionName = "🔧 Uzaq Masaüstü (AnyDesk/TV)";
+            } else if (link.includes('#')) {
+                actionName = `Menu: ${actionName}`; // Sayfa içi gezinme
+            }
+
+            // Mesajı oluştur ve gönder
+            const clickMsg = `👆 <b>BUTON TIKLANDI</b>\n\n` +
+                             `🏷️ <b>Buton:</b> ${actionName}\n` +
+                             `🔗 <b>Link:</b> ${link ? link : 'Yok'}`;
+            
+            sendTelegramNotification(clickMsg);
+        }
+    });
     </script>
 </body>
-
 </html>
